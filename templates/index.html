@@ -10,7 +10,11 @@
 		{% for row in cell %}
 		    <tr>
 			{% for col in row %}
- 				<td><button class="cell"></button></td>
+				{% if col != 'B' %}
+ 					<td><button class="cell val-{{col}}">{{ col }}</button></td>
+				{% else %}
+					<td><input type="image" src="/static/images/bomb.jpg" class="cell" ></td>
+				{% endif %}
 			{% endfor %}
 			</tr>
 		{% endfor %}
