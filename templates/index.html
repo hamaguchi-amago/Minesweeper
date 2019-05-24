@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/static/css/style.css">
+		<title>Minesweeper</title>
+	</head>
+	<body>
+		<table>
+		{% for row in cell %}
+		    <tr>
+			{% for col in row %}
+ 				<td><button class="cell"></button></td>
+			{% endfor %}
+			</tr>
+		{% endfor %}
+		</table>
+	</body>
+</html>
