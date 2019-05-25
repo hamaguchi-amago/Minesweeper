@@ -8,7 +8,7 @@
 	<body>
 		<table>
 		{% for row in cell %}
-		    <tr>
+			<tr>
 			{% for col in row %}
 				{% if col != 'B' %}
  					<td><button class="cell val-{{col}}">{{ col }}</button></td>
