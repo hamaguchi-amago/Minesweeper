@@ -3,19 +3,26 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="/static/css/style.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="/static/index.js"></script>
 		<title>Minesweeper</title>
 	</head>
 	<body>
 		<table>
+		{% set i = [0] %}
 		{% for row in cell %}
+			{% if i.append(i.pop() + 1) %}{% endif %} 
+			{% set j = [0] %}
 			<tr>
 			{% for col in row %}
-				{% if col == 'B'%}
-					<td><input type="image" src="/static/images/bomb.jpg" class="cell" ></td>
+				{% if j.append(j.pop() + 1) %}{% endif %}
+				<td id="front-{{ i[0] }}-{{ j[0] }}"><button class="front-cell"></button></td>
+			    {% if col == 'B'%}
+					<td id="back-{{ i[0] }}-{{ j[0] }}" hidden=""><input type="image" src="/static/images/bomb.jpg" class="back-cell"></td>
 				{% elif col == 0 %}
-					<td><button class="cell val-{{col}}"></button></td>
+					<td id="back-{{ i[0] }}-{{ j[0] }}" hidden=""><button class="back-cell val-{{col}}"></button></td>
 				{% else %}
-					<td><button class="cell val-{{col}}">{{ col }}</button></td>
+					<td id="back-{{ i[0] }}-{{ j[0] }}" hidden=""><button class="back-cell val-{{col}}">{{ col }}</button></td>
 				{% endif %}
 			{% endfor %}
 			</tr>

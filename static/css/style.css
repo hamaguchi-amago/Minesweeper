@@ -1,13 +1,20 @@
 @charset 'utf-8';
-table {
-  border-spacing: 5px 0px;
-}
-
-.cell {
+td{
 	height: 50px;
 	width: 50px;
-	background: #C0C0C0;
+}
+.front-cell {
+	height: 100%;
+	width: 100%;
 	font-weight: bold;
+	background: #a9a9a9;
+}
+
+.back-cell {
+	height: 100%;
+	width: 100%;
+	font-weight: bold;
+	background: #C0C0C0;
 }
 
 .val-1{
