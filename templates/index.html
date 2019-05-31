@@ -16,13 +16,22 @@
 			<tr>
 			{% for col in row %}
 				{% if j.append(j.pop() + 1) %}{% endif %}
-				<td id="front-{{ i[0] }}-{{ j[0] }}"><button class="front-cell"></button></td>
+				<td id="front-{{ i[0] }}-{{ j[0] }}">
+					<button class="front-cell"></button>
+					<input hidden="true" type="image" src="/static/images/flag.jpg" class="front-cell">
+				</td>
 			    {% if col == 'B'%}
-					<td id="back-{{ i[0] }}-{{ j[0] }}" hidden=""><input type="image" src="/static/images/bomb.jpg" class="back-cell"></td>
+					<td id="back-{{ i[0] }}-{{ j[0] }}" hidden="true" data-val="{{col}}">
+						<input type="image" src="/static/images/bomb.jpg" class="back-cell" >
+					</td>
 				{% elif col == 0 %}
-					<td id="back-{{ i[0] }}-{{ j[0] }}" hidden=""><button class="back-cell val-{{col}}"></button></td>
+					<td id="back-{{ i[0] }}-{{ j[0] }}" hidden="true" data-val="{{col}}">
+						<button class="back-cell val-{{col}}"></button>
+					</td>
 				{% else %}
-					<td id="back-{{ i[0] }}-{{ j[0] }}" hidden=""><button class="back-cell val-{{col}}">{{ col }}</button></td>
+					<td id="back-{{ i[0] }}-{{ j[0] }}" hidden="true" data-val="{{col}}">
+						<button class="back-cell val-{{col}}">{{ col }}</button>
+					</td>
 				{% endif %}
 			{% endfor %}
 			</tr>

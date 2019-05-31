@@ -34,9 +34,7 @@ def check_value(cell, i, j, count , vertical ,horizontal):
        (horizontal == Horizontal.LEFT and j == 0) or \
        (horizontal == Horizontal.RIGHT and j == 8):
     	return count
-    
-    print("vertical" + str(vertical) +" horizontal" + str(horizontal))
-    
+        
     row = 0
     if vertical == Vertical.TOP:
     	row = i - 1 
