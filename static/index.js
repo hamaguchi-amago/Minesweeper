@@ -12,6 +12,9 @@ $(function() {
     			}
     		}
         	clicked = false;
+        	if(countNumber() == 10){
+        		alert("Congratulation！");
+        	}
         	return;
     	}
  	    // シングルクリックを受理、300ms間だけダブルクリック判定を残す
@@ -31,7 +34,6 @@ $(function() {
     	let target = id.replace('front','back');
     	$('#' + id ).attr('hidden','true');
     	$('#' + target ).removeAttr('hidden');
-    	
     	let val = document.getElementById(target).dataset.val;
     	if(val == 'B'){
     		alert("GAME OVER!!");
@@ -50,10 +52,20 @@ $(function() {
     	return;
     }
 
+    function countNumber(){
+		let count = 0;
+		$('td[id^=front]:not([hidden])').each(function(){
+    		count = count + 1;
+    	});
+
+    	return count;
+    }
+
    	function check(id){
    		if($('#' + id ).attr('hidden') == 'hidden'){
    			openlist.push(id.replace('back','front'));
    		}
+   		return;
    	}
 
     function flag(id){
